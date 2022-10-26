@@ -1,39 +1,16 @@
 <template>
-  <h1>Main Page</h1>
 
   <div class="categories">
       <div className="category">
         <div className="ctext">
-          <h1>USB</h1>
+          <h1>NFT</h1>
           <ul v-for="item in test_data" :key="item.id" :data="item">
-            <li>{{item.name}}</li>
+            <li>{{item.name}} - {{item.hype}}</li>
           </ul>
-          <span>See more</span>
+          <span><router-link to="top">See more</router-link></span>
         </div>
       </div>
 
-      <div className="category">
-        <div className="ctext">
-          <h1>USB</h1>
-          <ul v-for="item in test_data" :key="item.id" :data="item">
-            <li>{{item.name}}</li>
-          </ul>
-          <span>See more</span>
-        </div>
-      </div>
-
-      <div className="category">
-        <div className="ctext">
-          <h1>USB</h1>
-          <ul v-for="item in test_data" :key="item.id" :data="item">
-            <li>{{item.name}}</li>
-          </ul>
-          <span>See more</span>
-        </div>
-      </div>
-
-      <br>
-      <router-link to="top">to top</router-link>
   </div>
 </template>
 
@@ -47,21 +24,35 @@ export default {
         {
           id: 0,
           name: 'awd1',
-          supply: '[pawd]',
+          supply: 1009,
           commynity: 'nameOfComm1',
           hype: 85
         },
         {
           id: 1,
           name: 'awd1',
-          supply: '[pawd]',
+          supply: 27,
           commynity: 'nameOfComm2',
           hype: 85
         },
         {
           id: 2,
           name: 'name tra tra tra',
-          supply: 'i dont know what is',
+          supply: 107,
+          commynity: 'nameOfComm3',
+          hype: 85
+        },
+        {
+          id: 3,
+          name: 'UlnraB',
+          supply: 102,
+          commynity: 'nameOfComm3',
+          hype: 85
+        },
+        {
+          id: 2,
+          name: 'Z_Nfw',
+          supply: 88,
           commynity: 'nameOfComm3',
           hype: 85
         }
@@ -86,7 +77,6 @@ export default {
     background: linear-gradient(0.1turn, purple, rgb(185, 27, 213), orange);
     border-radius: 20px;
     box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
-    
     background-size: 100% 200%;
     transition: all 1.2s ease;
     background-position: 0 0;
@@ -94,13 +84,11 @@ export default {
   .category:hover{
     transform: scale(1.02);
     background-position:0 100%;
-    
     box-shadow: rgba(149, 157, 165, 0.9) 0px 8px 24px;
   }
   
   .ctext{
     border-radius: 20px;
-    
     background: #6666667d;
     color: white;
     padding: 2rem;
@@ -110,5 +98,15 @@ export default {
   }
   .ctext h1{
     font-size: 48px;
+  }
+
+  a{
+    color: rgb(243, 231, 255);
+    padding: 5px 10px;
+    transition: all .2s ease-in-out;
+    border-radius: 6px;
+  }
+  a:hover{
+    background: #1f1d1d7d;
   }
 </style>

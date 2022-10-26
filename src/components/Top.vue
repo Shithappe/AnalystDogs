@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <h2>Top of categories</h2>
-    <div class="categories">
+    <!-- <div class="categories">
       <div className="category">
         <div className="ctext">
           <h1>USB</h1>
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-    </div>
+    </div> -->
     <input className="inpSeach" v-model="seach" v-on:change="seching" type="text" placeholder="Seaching of projects...">
     <div className="sort_tool">
       <button>Name</button>
