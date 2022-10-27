@@ -1,41 +1,19 @@
 <template>
   <div class="main">
-    <h2>Top of categories</h2>
-    <!-- <div class="categories">
-      <div className="category">
-        <div className="ctext">
-          <h1>USB</h1>
-          <span>Lorem ipsum dolor, sit amet consectetur.</span>
-        </div>
-      </div>
-
-      <div className="category">
-        <div className="ctext">
-          <h1>NFT</h1>
-          <span>Lorem ipsum dolor, sit amet consectetur.</span>
-        </div>
-      </div>
-
-      <div className="category">
-        <div className="ctext">
-          <h1>BTC</h1>
-          <span>Lorem ipsum dolor, sit amet consectetur.</span>
-        </div>
-      </div>
-
-    </div> -->
     <input className="inpSeach" v-model="seach" v-on:change="seching" type="text" placeholder="Seaching of projects...">
+
+    <h2>#{{this.category}}</h2>
     <div className="sort_tool">
       <button>Name</button>
-      <button>Date</button>
       <button>Members</button>
       <button>Hype</button>
     </div>
-    <Card v-for="item in sort_data" :key="item.id" :data="item"/>
+    <Card v-for="item in this.data_api" :key="item.id" :data="item"/>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import Card from './Card.vue';
 
 export default {
@@ -45,6 +23,7 @@ export default {
   },
   data() {
     return { 
+      category: this.$route.params.category,
       seach: '',
       test_data: [
         {
@@ -69,7 +48,8 @@ export default {
           hype: 85
         }
       ],
-      sort_data: []
+      sort_data: [],
+      data_api: {}
     }
   },
   methods: {
@@ -78,17 +58,20 @@ export default {
     }
   },
   mounted() {
-    this.sort_data = this.test_data;
+    axios.get("https://jsonplaceholder.typicode.com/posts")
+    .then(response => (this.data_api = response.data))
+
+    this.sort_data = this.data_api;
   }
 }
 </script>
 
 <style>
   .inpSeach{
-    margin-top: 20px;
-
     width: 15vw;
-
+    position: absolute;
+    top: 20px;
+    left: 42.5vw;
     border: none;
     outline: none;
     
@@ -114,7 +97,7 @@ export default {
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 5px;
     padding: 5px 10px;
-    color: rgb(83, 83, 83);
+    color: rgb(232, 239, 255);
     background-color: rgba(255, 255, 255, 0);
     font-size: 16px;
     font-weight: 500;
@@ -126,45 +109,4 @@ export default {
     background-color: rgba(54, 19, 128, 0.19);
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
-  
-  .categories{
-    display: flex;
-    justify-content: center;
-  }
-  
-  .category{    
-    margin: 1em;
-    width: 250px;
-    padding: .4rem;
-    position: relative;
-    background: linear-gradient(0.1turn, purple, rgb(185, 27, 213), orange);
-    border-radius: 20px;
-    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
-    
-    background-size: 100% 200%;
-    transition: all 1.2s ease;
-    background-position: 0 0;
-  }
-  .category:hover{
-    transform: scale(1.02);
-    background-position:0 100%;
-    
-    box-shadow: rgba(149, 157, 165, 0.9) 0px 8px 24px;
-  }
-  
-  .ctext{
-    border-radius: 20px;
-    
-    background: #6666667d;
-    color: white;
-    padding: 2rem;
-    text-align: left;
-    font-family: "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    text-shadow: 1px 1px 5px rgb(41, 39, 39, 0.5);
-  }
-  .ctext h1{
-    font-size: 48px;
-  }
-
 </style>
