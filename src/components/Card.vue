@@ -29,12 +29,12 @@ export default {
 
     border-radius: 15px;
     
-    transition: .3s ease-in-out;
+    transition: all .2s ease-in-out;
     background-color: #65cbfa7f;
   }
   .card:hover{
-    box-shadow: rgba(78, 80, 81, 0.4) 0px 8px 24px;
     transform: scale(1.02);
     background-color: #65cbfa9c;
+    box-shadow: rgba(78, 80, 81, 0.4) 0px 8px 24px;
  }
 </style>

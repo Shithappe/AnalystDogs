@@ -4,7 +4,7 @@
           <h1>{{this.dataEl.category}}</h1>
           <ol>
             <li  v-for="item in dataEl.list" :key="item.id" :data="item">
-              <span>{{item.id + 1 + ")"}} {{item.name}}</span> 
+              <span className="NumName"><span>{{item.id + 1}}</span>  <span>{{item.name}}</span></span> 
               <span>{{item.hype}}</span>
             </li>
           </ol>
@@ -45,13 +45,15 @@ export default {
     border-radius: 20px;
     background: #6666667d;
     color: white;
-    padding: 2rem;
+    /* padding: 2rem; */
+    padding: 1rem;
     text-align: left;
     font-family: "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     text-shadow: 1px 1px 5px rgb(41, 39, 39, 0.5);
   }
   .ctext h1{
     font-size: 48px;
+    padding: 2rem 0 0 1rem;
   }
 
   a, li{
@@ -75,5 +77,10 @@ export default {
   }
   ol{
     padding-inline-start: 0px;
+    padding-left: 0;
+  }
+
+  .NumName *{
+    margin-left: 10px;
   }
 </style>

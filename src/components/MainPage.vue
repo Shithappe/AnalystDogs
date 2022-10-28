@@ -1,6 +1,8 @@
 <template>
   <div class="categories">
     <BigCard :dataEl="test_data" />
+    <BigCard :dataEl="test_data" />
+    <BigCard :dataEl="test_data" />
 
   </div>
 </template>
@@ -63,6 +65,7 @@ export default {
 
 <style scoped>
   .categories{
+    margin-top: 9em;
     display: flex;
     justify-content: center;
   }

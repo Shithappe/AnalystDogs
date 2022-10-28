@@ -1,12 +1,18 @@
 <template>
   <nav className="nav">
     <div style="position:absolute" v-bind:class="{ back: darkMode }"></div>
-    <span>TopStry</span>
+    <span className="logo">Logo Somethithg</span>
 
-    <div>
-        <label for="switch">dark mode</label>
-        <input v-model="darkMode" type="checkbox" name="switch" id="">
-        <button class="button-27" onclick="location.href = `https://www.aptos.systems/submit_project_aptos/`">Submit project</button>
+    <div className="sb">
+      <div>
+        <input v-model="darkMode" type="checkbox" class="checkbox" id="checkbox" name="switch">
+        <label for="checkbox" class="label">
+          <i class="fas fa-moon"><img src="../assets/moon.png" alt=""></i>
+          <i class='fas fa-sun'><img src="../assets/sun.jpg" alt=""></i>
+          <div class='ball'></div>
+        </label>
+      </div>
+        <button class="button-27" onclick="location.href = `https://suiecosystem.top/submit-sui-project/`">Submit project</button>
     </div>
   </nav>
 </template>
@@ -18,12 +24,20 @@ export default {
         return {
             darkMode: 0
         }
+    },
+    watch: {    
+      darkMode(darkMode) {
+      const light = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1047%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' fill='rgba(23%2c 112%2c 203%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c880.356C161.371%2c897.012%2c277.268%2c731.403%2c415.971%2c647.263C559.117%2c560.428%2c761.061%2c531.595%2c827.943%2c378.109C894.848%2c224.571%2c766.42%2c58.996%2c744.674%2c-107.068C722.552%2c-276.005%2c804.179%2c-471.656%2c699.103%2c-605.776C594.052%2c-739.865%2c394.769%2c-747.103%2c225.877%2c-769.267C77.089%2c-788.793%2c-78.011%2c-790.988%2c-213.019%2c-725.475C-338.177%2c-664.742%2c-404.273%2c-533.953%2c-488.002%2c-422.856C-565.753%2c-319.691%2c-643.267%2c-220.645%2c-685.497%2c-98.56C-735.293%2c45.397%2c-819.505%2c206.835%2c-753.264%2c344.004C-686.939%2c481.348%2c-488.461%2c478.27%2c-364.218%2c566.735C-231.011%2c661.583%2c-162.661%2c863.567%2c0%2c880.356' fill='%231463b3'%3e%3c/path%3e%3cpath d='M1920 1560.153C2016.145 1569.564 2115.931 1563.1399999999999 2200.5860000000002 1516.6 2288.246 1468.408 2346.948 1384.441 2397.079 1297.875 2451.507 1203.889 2523.535 1102.765 2501.873 996.3389999999999 2480.3 890.35 2364.645 837.425 2287.8559999999998 761.251 2217.598 691.5550000000001 2160.505 608.8530000000001 2070.279 568.197 1971.742 523.796 1861.975 500.17999999999995 1756.0430000000001 521.615 1645.291 544.025 1540.09 601.413 1469.614 689.739 1400.393 776.492 1390.393 891.737 1373.2269999999999 1001.386 1355.851 1112.38 1308.179 1237.2 1369.134 1331.5720000000001 1430.326 1426.311 1568.455 1421.696 1672.626 1464.922 1755.923 1499.4859999999999 1830.245 1551.367 1920 1560.153' fill='%231a7de3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1047'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e";
+      const dark = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1048%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' fill='rgba(14%2c 69%2c 126%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c880.356C161.371%2c897.012%2c277.268%2c731.403%2c415.971%2c647.263C559.117%2c560.428%2c761.061%2c531.595%2c827.943%2c378.109C894.848%2c224.571%2c766.42%2c58.996%2c744.674%2c-107.068C722.552%2c-276.005%2c804.179%2c-471.656%2c699.103%2c-605.776C594.052%2c-739.865%2c394.769%2c-747.103%2c225.877%2c-769.267C77.089%2c-788.793%2c-78.011%2c-790.988%2c-213.019%2c-725.475C-338.177%2c-664.742%2c-404.273%2c-533.953%2c-488.002%2c-422.856C-565.753%2c-319.691%2c-643.267%2c-220.645%2c-685.497%2c-98.56C-735.293%2c45.397%2c-819.505%2c206.835%2c-753.264%2c344.004C-686.939%2c481.348%2c-488.461%2c478.27%2c-364.218%2c566.735C-231.011%2c661.583%2c-162.661%2c863.567%2c0%2c880.356' fill='%230c3d6f'%3e%3c/path%3e%3cpath d='M1920 1560.153C2016.145 1569.564 2115.931 1563.1399999999999 2200.5860000000002 1516.6 2288.246 1468.408 2346.948 1384.441 2397.079 1297.875 2451.507 1203.889 2523.535 1102.765 2501.873 996.3389999999999 2480.3 890.35 2364.645 837.425 2287.8559999999998 761.251 2217.598 691.5550000000001 2160.505 608.8530000000001 2070.279 568.197 1971.742 523.796 1861.975 500.17999999999995 1756.0430000000001 521.615 1645.291 544.025 1540.09 601.413 1469.614 689.739 1400.393 776.492 1390.393 891.737 1373.2269999999999 1001.386 1355.851 1112.38 1308.179 1237.2 1369.134 1331.5720000000001 1430.326 1426.311 1568.455 1421.696 1672.626 1464.922 1755.923 1499.4859999999999 1830.245 1551.367 1920 1560.153' fill='%23104d8d'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1048'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e";
+      if (darkMode) document.body.style.background = `no-repeat fixed url("${dark}")`; 
+      if (!darkMode) document.body.style.background = `no-repeat fixed url("${light}")`;
     }
+  }
 
 }
 </script>
 
-<style>
+<style scoped>
     .nav{
         display: flex;
         justify-content: space-around;
@@ -69,13 +83,81 @@ export default {
   transform: translateY(0);
 }
 
-.back{
+/* .back{
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -2;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1341%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' fill='url(%23SvgjsLinearGradient1342)'%3e%3c/rect%3e%3cpath d='M1085.821%2c782.307C1188.324%2c786.117%2c1291.657%2c742.243%2c1342.138%2c652.951C1391.959%2c564.826%2c1372.958%2c455.97%2c1318.591%2c370.575C1268.324%2c291.619%2c1179.291%2c255.253%2c1085.821%2c250.345C980.741%2c244.827%2c859.651%2c252.885%2c806.473%2c343.684C752.969%2c435.039%2c803.639%2c545.75%2c860.511%2c635.048C912.168%2c716.158%2c989.724%2c778.735%2c1085.821%2c782.307' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M-55.98 1066.96 a288.48 288.48 0 1 0 576.96 0 a288.48 288.48 0 1 0 -576.96 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1568.86 511.77 a201.18 201.18 0 1 0 402.36 0 a201.18 201.18 0 1 0 -402.36 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1469.7852032162484 809.5452374568318L1729.8365464995595 837.1283324753774 1640.5150394123255 626.700048684974z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M562.7483910347661 576.7140687582013L556.7386320574832 748.811049000951 728.8356123002329 754.820807978234 734.8453712775158 582.7238277354842z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M641.9995509361959 959.0227220112604L805.980050533332 1092.0704677893157 838.0342479498543 910.282080738556z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M892.532%2c548.62C962.063%2c550.652%2c1033.309%2c519.105%2c1064.22%2c456.79C1092.801%2c399.172%2c1060.303%2c334.968%2c1025.269%2c281.03C994.215%2c233.221%2c949.469%2c195.328%2c892.532%2c192.464C830.264%2c189.332%2c766.883%2c213.15%2c734.456%2c266.401C700.849%2c321.59%2c705.809%2c390.864%2c737.386%2c447.239C769.743%2c505.007%2c826.347%2c546.686%2c892.532%2c548.62' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M331.9078778763949 756.5994654537818L124.7721509224744 823.6837650905456 263.96966020081675 953.487542445387z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M-126.06 228.59 a241.05 241.05 0 1 0 482.1 0 a241.05 241.05 0 1 0 -482.1 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M918.92 511.65 a304.62 304.62 0 1 0 609.24 0 a304.62 304.62 0 1 0 -609.24 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1341'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='10.94%25' y1='-19.44%25' x2='89.06%25' y2='119.44%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1342'%3e%3cstop stop-color='rgba(14%2c 42%2c 71%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(1%2c 74%2c 167%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+  z-index: -3;
+  background: no-repeat fixed url("../assets/Pattern\ Bg\ 3-01.jpg");
+} */
+
+
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background 0.2s linear;
+}
+body.dark {
+  background-color: #292c35;
+}
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  width: 40px;
+  height: 20px;
+  background-color:#111;
+  display: flex;
+  border-radius:50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  transform: scale(1.5);
+}
+
+.ball {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: 0.2s linear;
+}
+
+/*  target the elemenent after the label*/
+.checkbox:checked + .label .ball{
+  transform: translateX(18px);
+}
+
+img{
+  margin-top: 2px;
+  width: 15px;
+  height: 15px;
+  filter: invert(1);
+}
+
+.sb{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo{
+  font-size: 2em;
+  font-weight: 600;
+  text-shadow: 3px 4px 7px rgba(81,67,21,0.8);
 }
 </style>
