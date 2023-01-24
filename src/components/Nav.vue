@@ -1,7 +1,7 @@
 <template>
   <nav className="nav">
     <div style="position:absolute" v-bind:class="{ back: darkMode }"></div>
-    <span className="logo">Logo Somethithg</span>
+    <span className="logo">AnalystDogs</span>
 
     <div className="sb">
       <div>
@@ -12,7 +12,8 @@
           <div class='ball'></div>
         </label>
       </div>
-        <button class="button-27" onclick="location.href = `https://suiecosystem.top/submit-sui-project/`">Submit project</button>
+      <button class="button-27" >Wallet soon...</button>
+      <button class="button-27" onclick="location.href = `https://suiecosystem.top/submit-sui-project/`">Submit project</button>
     </div>
   </nav>
 </template>
@@ -38,17 +39,18 @@ export default {
 </script>
 
 <style scoped>
-    .nav{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 5em;
-        background-color: rgba(4, 148, 209, 0);
-    }
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5em;
+    background-color: rgba(4, 148, 209, 0);
+}
 
 
 .button-27 {
@@ -114,6 +116,7 @@ body.dark {
 }
 
 .label {
+  margin: 10px;
   width: 40px;
   height: 20px;
   background-color:#111;

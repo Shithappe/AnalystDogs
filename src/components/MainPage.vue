@@ -1,19 +1,33 @@
 <template>
-  <div class="categories">
-    <BigCard :dataEl="test_data" />
-    <BigCard :dataEl="test_data" />
-    <BigCard :dataEl="test_data" />
+  <div class="main_welcome">
 
+    <div class="categories">
+      <BigCard :dataEl="test_data" />
+      <BigCard :dataEl="test_data" />
+      <BigCard :dataEl="test_data" />
+    </div>
+    <div class="categories_small">
+        <SmallCard :dataEl="test_data"/>
+        <SmallCard :dataEl="test_data"/>
+        <SmallCard :dataEl="test_data"/>
+        <SmallCard :dataEl="test_data"/>
+        <SmallCard :dataEl="test_data"/>
+        <SmallCard :dataEl="test_data"/>
+        <SmallCard :dataEl="test_data"/>
+      </div>
   </div>
 </template>
 
 <script>
 import BigCard from './BigCard.vue';
+import SmallCard from './SmallCard.vue';
+
 
 export default {
     name: "MainPage",
     components: {
-      BigCard
+      BigCard,
+      SmallCard
     },
     data() {
     return { 
@@ -63,10 +77,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+html, body{
+  margin: 0;
+  padding: 0;
+}
   .categories{
     margin-top: 9em;
     display: flex;
     justify-content: center;
   }
+
+.categories_small{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 2vw 5vw;
+}
 </style>
