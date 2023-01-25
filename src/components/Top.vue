@@ -8,7 +8,7 @@
       <button>Members</button>
       <button>Hype</button>
     </div>
-    <Card v-for="item in this.data_api" :key="item.id" :data="item"/>
+    <Card v-for="item in this.sort_data" :key="item.id" :data="item"/>
   </div>
 </template>
 
@@ -25,41 +25,21 @@ export default {
     return { 
       category: this.$route.params.category,
       seach: '',
-      test_data: [
-        {
-          id: 0,
-          name: 'awd1',
-          supply: '[pawd]',
-          commynity: 'nameOfComm1',
-          hype: 85
-        },
-        {
-          id: 1,
-          name: 'awd1',
-          supply: '[pawd]',
-          commynity: 'nameOfComm2',
-          hype: 85
-        },
-        {
-          id: 2,
-          name: 'name tra tra tra',
-          supply: 'i dont know what is',
-          commynity: 'nameOfComm3',
-          hype: 85
-        }
-      ],
       sort_data: [],
       data_api: {}
     }
   },
   methods: {
     seching() {
-      this.sort_data = this.test_data.filter(el => el.name.includes(this.seach));
+      console.log(this.seach);
+      this.sort_data = this.data_api.filter(el => el.title.includes(this.seach));
     }
   },
   mounted() {
     axios.get("https://jsonplaceholder.typicode.com/posts")
-    .then(response => (this.data_api = response.data))
+    .then((response) => {this.data_api = response.data; this.sort_data = response.data})
+    // .then(response => (console.log(response.data)))
+    .catch(console.log)
 
     this.sort_data = this.data_api;
   }

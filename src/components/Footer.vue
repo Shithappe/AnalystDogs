@@ -1,8 +1,7 @@
 <template>
   <footer>
     <div class="copy">
-        <span>Copyright © 2023 Project by Sui.</span>
-        <span>All rights reserved ❤️ with love Sui Ecosystem</span>
+        <span>Copyright © 2023 Project by Sui. All rights reserved ❤️ with love Sui Ecosystem</span>
     </div>
 
     <div class="social">
@@ -22,16 +21,14 @@ export default {
 <style scoped>
 footer{
     width: 100%;
-    /* position: absolute; */
-    /* bottom: 0; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 0;
     margin: 0;
     font-size: medium;
     color: white;
-    background-color: black;
+    box-shadow: rgba(39, 40, 40, 0.5) 0px 8px 24px;
+    backdrop-filter: blur(10px);
 }
 
 footer *{
@@ -55,7 +52,7 @@ footer *{
     filter: invert(1);
 }
 
-#f{width: 35px;}
-#t{width: 50px;}
-#tr{width: 30px;}
+#f{width: 25px;}
+#t{width: 40px;}
+#tr{width: 20px;}
 </style>
