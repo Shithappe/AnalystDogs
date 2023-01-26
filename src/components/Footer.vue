@@ -50,6 +50,7 @@ footer *{
 .social img{
     width: 25px;
     filter: invert(1);
+    cursor: pointer;
 }
 
 #f{width: 25px;}

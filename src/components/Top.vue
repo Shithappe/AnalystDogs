@@ -1,14 +1,17 @@
 <template>
   <div class="main">
-    <input className="inpSeach" v-model="seach" v-on:change="seching" type="text" placeholder="Seaching of projects...">
+    <img src="../assets/45.png" alt="">
+    <div class="adding">
+      <h1>#{{this.category}}</h1>
 
-    <h2>#{{this.category}}</h2>
-    <div className="sort_tool">
-      <button>Name</button>
-      <button>Members</button>
-      <button>Hype</button>
+      <div className="sort_tool">
+        <input className="inpSeach" v-model="seach" v-on:change="seching" type="text" placeholder="Seaching of projects...">
+        <button v-on:click="sort_of_members">Members</button>
+        <button>Hype</button>
+      </div>
     </div>
-    <Card v-for="item in this.sort_data" :key="item.id" :data="item"/>
+    
+    <Card v-for="(item, index) in this.sort_data" :key="index" :index="index" :data="item" :max_hype="max_hype"/>
   </div>
 </template>
 
@@ -26,18 +29,58 @@ export default {
       category: this.$route.params.category,
       seach: '',
       sort_data: [],
-      data_api: {}
+      data_api: {},
+      max_hype: 0
     }
   },
   methods: {
     seching() {
-      console.log(this.seach);
       this.sort_data = this.data_api.filter(el => el.title.includes(this.seach));
+    },
+    sort_of_members() {
+      this.sort_data = this.data_api.sort((a, b) => Number(a.members) < Number(b.members) ? 1 : -1)
+    },
+    arrayMax() {
+      let hypes = [];
+      this.sort_data.forEach(element => {
+        hypes.push(Number(element.hype))
+      });
+      this.max_hype = Math.max.apply(Math, hypes);
     }
   },
   mounted() {
     axios.get("https://jsonplaceholder.typicode.com/posts")
-    .then((response) => {this.data_api = response.data; this.sort_data = response.data})
+    .then(() => {
+      const data = [
+        {
+          img: "https://pbs.twimg.com/profile_images/1611946134955491328/Mniqi7GF_400x400.jpg",
+          title: "NextLight",
+          members: 100,
+          hype: 12000
+        },
+        {
+          img: "https://pbs.twimg.com/profile_images/1610382321517056003/LF6F4Cfn_400x400.jpg",
+          title: "SuiDuckz - #Suiduckz We want to make a sustainable NFT project for the community and everyone in the future 🦆🌊",
+          members: 250,
+          hype: 13000
+        },
+        {
+          img: "https://pbs.twimg.com/profile_images/1610382321517056003/LF6F4Cfn_400x400.jpg",
+          title: "SuiDuckz - #Suiduckz We want to make a sustainable NFT project for the community and everyone in the future 🦆🌊",
+          members: 10000,
+          hype: 14000
+        },
+        {
+          img: "https://pbs.twimg.com/profile_images/1610382321517056003/LF6F4Cfn_400x400.jpg",
+          title: "FunnyBuns",
+          members: 520,
+          hype: 15000
+        }
+      ];
+      this.data_api = data; 
+      this.sort_data = data;
+      this.arrayMax();
+    })
     // .then(response => (console.log(response.data)))
     .catch(console.log)
 
@@ -47,11 +90,19 @@ export default {
 </script>
 
 <style>
+.main{
+  min-height: 78vh;
+}
+.main > img{
+  height: 400px;
+  position: fixed;
+  top: 50vh;
+  left: 80vw;
+  opacity: .5;
+  z-index: -2;
+}
   .inpSeach{
     width: 15vw;
-    position: absolute;
-    top: 20px;
-    left: 42.5vw;
     border: none;
     outline: none;
     
@@ -88,5 +139,19 @@ export default {
     transition: .5s ease-in-out;
     background-color: rgba(54, 19, 128, 0.19);
     border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+
+  .adding{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 60vw;
+    margin: 0 auto;
+  }
+  .adding h1{
+    margin: auto 0;
   }
 </style>
