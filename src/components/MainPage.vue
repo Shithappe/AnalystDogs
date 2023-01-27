@@ -92,7 +92,7 @@ html, body{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 2vw 5vw;
+  justify-content: center;
+  padding: 2vh 5vw;
 }
 </style>

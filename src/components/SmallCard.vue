@@ -1,7 +1,7 @@
 <template>
     <div className="category">
         <div className="ctext">
-          <h1>{{this.dataEl.category}}</h1>
+          <h2>{{this.dataEl.category}}</h2>
           <!-- <span><router-link :to="{ name: 'top', params: { category: this.dataEl.category }}">See more</router-link></span> -->
         </div>
       </div>
@@ -15,10 +15,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .category{    
-    margin: 1em;
-    width: 250px;
+    /* margin: 1em; */
+    width: 180px;
     padding: .4rem;
     position: relative;
     background: linear-gradient(0.1turn, purple, rgb(185, 27, 213), orange);
@@ -38,15 +38,13 @@ export default {
     border-radius: 20px;
     background: #6666667d;
     color: white;
-    /* padding: 2rem; */
-    padding: 1rem;
+    padding: .5rem;
     text-align: left;
     font-family: "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     text-shadow: 1px 1px 5px rgb(41, 39, 39, 0.5);
   }
-  .ctext h1{
-    font-size: 48px;
-    padding: 2rem 0 0 1rem;
+  .ctext h2{
+    padding: 0 1rem;
   }
 
   a, li{
