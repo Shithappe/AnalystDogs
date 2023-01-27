@@ -56,7 +56,7 @@ export default {
    height: 4rem;
    width: 4rem;
    object-fit: cover;
-   border-radius: 15%;
+   border-radius: 50%;
    box-shadow: rgba(39, 40, 40, 0.2) 0px 8px 24px;
   }
 

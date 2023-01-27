@@ -71,6 +71,7 @@ export default {
           hype: 14000
         },
         {
+          index: 2,
           img: "https://pbs.twimg.com/profile_images/1610382321517056003/LF6F4Cfn_400x400.jpg",
           title: "FunnyBuns",
           members: 520,
