@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .category{    
     margin: 1em;
     width: 250px;

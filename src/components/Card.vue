@@ -1,18 +1,16 @@
 <template>
   <div className="card">
     <div>{{index + 1}}</div>
-    <!-- <hr> -->
     <div class="logo_card">
       <img :src="data.img" alt="">
     </div>
     <div class="title">{{data.project_name}}</div>
     <div>
-      <span>Twitter</span>
-      <br>
-      <span>Discord</span>
+      <a target="_blank" :href="data.discord">Discord</a>
+      <a target="_blank" :href="data.twitter">Twitter</a>
     </div>
     <div class="member">
-      <span>{{ data.members }}</span>
+      <span>{{ data.followers_count }}</span>
       <img src="../assets/twitter-64.png" alt="">
     </div>
     <div><span>Hype</span><progress :max="this.max_hype" :value="this.data.hype"></progress></div>
@@ -69,10 +67,21 @@ export default {
 
   .member{
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 5px;
   }
   .member img{
     width: 15px;
+  }
+
+  a{
+    color: rgb(243, 231, 255);
+    padding: 5px 10px;
+    transition: all .2s ease-in-out;
+    border-radius: 6px;
+  }
+  a:hover, li:hover{
+    background: #1f1d1d7d;
+    transform: scale(1.01);
   }
 </style>
