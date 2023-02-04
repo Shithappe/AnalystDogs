@@ -49,9 +49,10 @@ export default {
     }
   },
   mounted() {
-    axios.get("https://jsonplaceholder.typicode.com/posts")
-    .then(() => {
-      const data = [
+    axios.get(`https://analtics.cryto.men/api/get_projects_by_cat/${this.category}`)
+    .then((response) => {
+      
+      let data = [
         {
           img: "https://pbs.twimg.com/profile_images/1611946134955491328/Mniqi7GF_400x400.jpg",
           title: "NextLight",
@@ -78,6 +79,8 @@ export default {
           hype: 15000
         }
       ];
+      data = response.data;
+      console.log(response.data);
       this.data_api = data; 
       this.sort_data = data;
       this.arrayMax();

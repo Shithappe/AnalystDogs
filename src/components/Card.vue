@@ -5,7 +5,7 @@
     <div class="logo_card">
       <img :src="data.img" alt="">
     </div>
-    <div class="title">{{data.title}}</div>
+    <div class="title">{{data.project_name}}</div>
     <div>
       <span>Twitter</span>
       <br>

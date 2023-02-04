@@ -5,7 +5,6 @@
           <ol>
             <li  v-for="item in dataEl.list" :key="item.id" :data="item">
               <span className="NumName"> <span>{{item.name}}</span></span> 
-              <!-- <span className="NumName"><span>{{item.id + 1}}</span>  <span>{{item.name}}</span></span>  -->
               <span>{{item.hype}}</span>
             </li>
           </ol>
@@ -18,8 +17,12 @@
 <script>
 export default {
     name: "BigCard",
-    props: ['dataEl']
-
+    props: ['dataEl'],
+  //   data() {
+  //     return { 
+  //       title: 'awd',
+  //     }
+  // },
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
     <div className="category">
         <div className="ctext">
-          <h2>{{this.dataEl.category}}</h2>
-          <!-- <span><router-link :to="{ name: 'top', params: { category: this.dataEl.category }}">See more</router-link></span> -->
+          <h2>{{this.category}}</h2>
+          <span><router-link :to="{ name: 'top', params: { category: this.category }}">See more</router-link></span>
         </div>
       </div>
 </template>
@@ -10,7 +10,12 @@
 <script>
 export default {
     name: "SmallCard",
-    props: ['dataEl']
+    props: {
+      category: String
+    },
+    created() {
+      console.log(this.category);
+    }
 
 }
 </script>

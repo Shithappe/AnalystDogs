@@ -2,23 +2,19 @@
   <div class="main_welcome">
 
     <div class="categories">
+      <!-- <BigCard title="NFT" /> -->
       <BigCard :dataEl="test_data" />
       <BigCard :dataEl="test_data" />
       <BigCard :dataEl="test_data" />
     </div>
     <div class="categories_small">
-        <SmallCard :dataEl="test_data"/>
-        <SmallCard :dataEl="test_data"/>
-        <SmallCard :dataEl="test_data"/>
-        <SmallCard :dataEl="test_data"/>
-        <SmallCard :dataEl="test_data"/>
-        <SmallCard :dataEl="test_data"/>
-        <SmallCard :dataEl="test_data"/>
+        <SmallCard v-for="category in this.categories" :category="category" :key="category"/>
       </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import BigCard from './BigCard.vue';
 import SmallCard from './SmallCard.vue';
 
@@ -31,6 +27,21 @@ export default {
     },
     data() {
     return { 
+      categories: [
+        // "NFT",
+        "Bridge",
+        "DeFi",
+        // "Dex",
+        "GameFi",
+        // "Infrastructure",
+        "Launchpad",
+        "Name Service",
+        "NFT Market",
+        "Official Partners",
+        "SocialFi",
+        "Tools",
+        "Wallet",
+      ],
       test_data: {
         category: "NFT",
         list: [
@@ -73,7 +84,10 @@ export default {
       }
     }
   },
-
+  mounted() {
+    axios.get('https://analtics.cryto.men/api/get_projects_by_cat/dex')
+    .then((response)=>{console.log(response.data);})
+  }
 }
 </script>
 
