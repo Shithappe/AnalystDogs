@@ -2,7 +2,7 @@
   <div className="card">
     <div>{{index + 1}}</div>
     <div class="logo_card">
-      <img :src="data.img" alt="">
+      <img :src="data.logo" alt="">
     </div>
     <div class="title">{{data.project_name}}</div>
     <div>

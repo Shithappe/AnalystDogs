@@ -49,37 +49,10 @@ export default {
     }
   },
   mounted() {
-    axios.get(`https://analtics.cryto.men/api/get_projects_by_cat/${this.category}`)
+    axios.get(`https://analtics.cryto.men/api/get_projects_by_cat/${this.category.toLowerCase().replace(/ /g, "-")}`)
     .then((response) => {
       
-      let data = [
-        {
-          img: "https://pbs.twimg.com/profile_images/1611946134955491328/Mniqi7GF_400x400.jpg",
-          title: "NextLight",
-          members: 100,
-          hype: 12000
-        },
-        {
-          img: "https://pbs.twimg.com/profile_images/1610382321517056003/LF6F4Cfn_400x400.jpg",
-          title: "SuiDuckz - #Suiduckz We want to make a sustainable NFT project for the community and everyone in the future 🦆🌊",
-          members: 250,
-          hype: 13000
-        },
-        {
-          img: "https://pbs.twimg.com/profile_images/1610382321517056003/LF6F4Cfn_400x400.jpg",
-          title: "SuiDuckz - #Suiduckz We want to make a sustainable NFT project for the community and everyone in the future 🦆🌊",
-          members: 10000,
-          hype: 14000
-        },
-        {
-          index: 2,
-          img: "https://pbs.twimg.com/profile_images/1610382321517056003/LF6F4Cfn_400x400.jpg",
-          title: "FunnyBuns",
-          members: 520,
-          hype: 15000
-        }
-      ];
-      data = response.data;
+      const data = response.data;
       console.log(response.data);
       this.data_api = data; 
       this.sort_data = data;
