@@ -13,9 +13,9 @@ export default {
     props: {
       category: String
     },
-    created() {
-      console.log(this.category);
-    }
+    // created() {
+    //   console.log(this.category);
+    // }
 
 }
 </script>

@@ -1,29 +1,25 @@
 <template>
     <div className="category">
         <div className="ctext">
-          <h1>{{this.dataEl.category}}</h1>
+          <h1>{{this.dataEl.cat == 'nft' ? this.dataEl.cat.toUpperCase() : this.dataEl.cat[0].toUpperCase() + this.dataEl.cat.slice(1)}}</h1>
           <ol>
-            <li  v-for="item in dataEl.list" :key="item.id" :data="item">
-              <span className="NumName"> <span>{{item.name}}</span></span> 
-              <span>{{item.hype}}</span>
+            <li v-for="(item, index) in this.dataEl[0]" :key="item.project_name">
+              <span className="NumName">{{index+1 +'. ' + item.project_name}}</span> 
+              <span>{{item.followers_count}}</span>
             </li>
           </ol>
-          <span><router-link :to="{ name: 'top', params: { category: this.dataEl.category }}">See more</router-link></span>
+          <span><router-link :to="{ name: 'top', params: { category: this.dataEl.cat }}">See more</router-link></span>
         </div>
-        <span>{{this.data}}</span>
+        <!-- <span>{{this.data}}</span> -->
       </div>
 </template>
 
 <script>
 export default {
     name: "BigCard",
-    props: ['dataEl'],
-  //   data() {
-  //     return { 
-  //       title: 'awd',
-  //     }
-  // },
-}
+    props: {
+      dataEl: Object
+    }}
 </script>
 
 <style scoped>
@@ -38,6 +34,14 @@ export default {
     background-size: 100% 200%;
     transition: all 1.2s ease;
     background-position: 0 0;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           
+
   }
   .category:hover{
     transform: scale(1.02);
@@ -49,7 +53,6 @@ export default {
     border-radius: 20px;
     background: #6666667d;
     color: white;
-    /* padding: 2rem; */
     padding: 1rem;
     text-align: left;
     font-family: "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";

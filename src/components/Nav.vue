@@ -13,7 +13,9 @@
         </label>
       </div>
       <button class="button-27" >Wallet soon...</button>
-      <button class="button-27" onclick="location.href = `https://suiecosystem.top/submit-sui-project/`">Submit project</button>
+      <a href="https://forms.gle/MibLKnYTrQAC7rj26" target="_blank">
+        <button class="button-27">Submit project</button>
+      </a>
     </div>
   </nav>
 </template>

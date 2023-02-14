@@ -2,7 +2,7 @@
   <div class="main">
     <img src="../assets/45.png" alt="">
     <div class="adding">
-      <h1>#{{this.category}}</h1>
+      <h1>#{{this.category == 'nft' ? this.category.toUpperCase() : this.category[0].toUpperCase() + this.category.slice(1)}}</h1>
 
       <div className="sort_tool">
         <input className="inpSeach" v-model="seach" v-on:change="seching" type="text" placeholder="Seaching of projects...">
@@ -38,7 +38,7 @@ export default {
       this.sort_data = this.data_api.filter(el => el.title.includes(this.seach));
     },
     sort_of_members() {
-      this.sort_data = this.data_api.sort((a, b) => Number(a.members) < Number(b.members) ? 1 : -1)
+      this.sort_data = this.data_api.sort((a, b) => Number(a.followers_count) < Number(b.followers_count) ? 1 : -1)
     },
     arrayMax() {
       let hypes = [];
@@ -51,14 +51,13 @@ export default {
   mounted() {
     axios.get(`https://analtics.cryto.men/api/get_projects_by_cat/${this.category.toLowerCase().replace(/ /g, "-")}`)
     .then((response) => {
+      // console.log(response.data);
       
       const data = response.data;
-      console.log(response.data);
       this.data_api = data; 
       this.sort_data = data;
       this.arrayMax();
     })
-    // .then(response => (console.log(response.data)))
     .catch(console.log)
 
     this.sort_data = this.data_api;

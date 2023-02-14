@@ -2,10 +2,11 @@
   <div class="main_welcome">
 
     <div class="categories">
-      <!-- <BigCard title="NFT" /> -->
+      <!-- <BigCard :dataEl="test_data" />
       <BigCard :dataEl="test_data" />
-      <BigCard :dataEl="test_data" />
-      <BigCard :dataEl="test_data" />
+      <BigCard :dataEl="test_data" /> -->
+
+      <BigCard v-for="card in this.big_card" :dataEl="card" :key="card.cat" />
     </div>
     <div class="categories_small">
         <SmallCard v-for="category in this.categories" :category="category" :key="category"/>
@@ -30,18 +31,19 @@ export default {
       categories: [
         // "NFT",
         "Bridge",
-        "DeFi",
-        // "Dex",
+        // "DeFi",
+        "Dex",
         "GameFi",
-        // "Infrastructure",
+        "Infrastructure",
         "Launchpad",
         "Name Service",
         "NFT Market",
         "Official Partners",
         "SocialFi",
         "Tools",
-        "Wallet",
+        // "Wallet",
       ],
+      big_card: [],
       test_data: {
         category: "NFT",
         list: [
@@ -85,8 +87,11 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://analtics.cryto.men/api/get_projects_by_cat/dex')
-    .then((response)=>{console.log(response.data);})
+    axios.get('https://analytics.movedogs.club/api/get_projects_by_cat_byhome')
+    .then((response)=>{
+      console.log(response.data);
+      this.big_card = response.data;
+    })
   }
 }
 </script>

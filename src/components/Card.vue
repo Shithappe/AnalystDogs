@@ -13,7 +13,8 @@
       <span>{{ data.followers_count }}</span>
       <img src="../assets/twitter-64.png" alt="">
     </div>
-    <div><span>Hype</span><progress :max="this.max_hype" :value="this.data.hype"></progress></div>
+    <!-- :max="this.max_hype" -->
+    <div><span>Hype</span><progress :value="this.data.hype"></progress></div>
   </div>
 </template>
 
