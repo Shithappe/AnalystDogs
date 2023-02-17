@@ -49,7 +49,7 @@ export default {
     }
   },
   mounted() {
-    axios.get(`https://analtics.cryto.men/api/get_projects_by_cat/${this.category.toLowerCase().replace(/ /g, "-")}`)
+    axios.get(`https://analytics.movedogs.club/api/get_projects_by_cat/${this.category.toLowerCase().replace(/ /g, "-")}`)
     .then((response) => {
       // console.log(response.data);
       

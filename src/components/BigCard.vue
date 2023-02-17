@@ -1,4 +1,5 @@
 <template>
+  <router-link :to="{ name: 'top', params: { category: this.dataEl.cat }}">
     <div className="category">
         <div className="ctext">
           <h1>{{this.dataEl.cat == 'nft' ? this.dataEl.cat.toUpperCase() : this.dataEl.cat[0].toUpperCase() + this.dataEl.cat.slice(1)}}</h1>
@@ -8,10 +9,11 @@
               <span>{{item.followers_count}}</span>
             </li>
           </ol>
-          <span><router-link :to="{ name: 'top', params: { category: this.dataEl.cat }}">See more</router-link></span>
+          <!-- <span><router-link :to="{ name: 'top', params: { category: this.dataEl.cat }}">See more</router-link></span> -->
         </div>
         <!-- <span>{{this.data}}</span> -->
       </div>
+    </router-link>
 </template>
 
 <script>
@@ -63,13 +65,17 @@ export default {
     padding: 2rem 0 0 1rem;
   }
 
-  a, li{
+  a{
+    text-decoration: none;
+  }
+
+li{
     color: rgb(243, 231, 255);
     padding: 5px 10px;
     transition: all .2s ease-in-out;
     border-radius: 6px;
   }
-  a:hover, li:hover{
+li:hover{
     background: #1f1d1d7d;
     transform: scale(1.01);
   }

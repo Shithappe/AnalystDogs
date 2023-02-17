@@ -1,4 +1,4 @@
-# test_task
+# AnalystDogs
 
 ## Project setup
 ```

@@ -1,6 +1,6 @@
 <template>
   <div className="card">
-    <div>{{index + 1}}</div>
+    <div>{{data.index}}</div>
     <div class="logo_card">
       <img :src="data.logo" alt="">
     </div>
@@ -22,7 +22,9 @@
 export default {
     name: 'Card',
     props: ['index', 'data', 'max_hype'],
-
+    // mounted(){
+    //   console.log(this.data);
+    // }
 }
 </script>
 
