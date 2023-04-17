@@ -1,7 +1,8 @@
 <template>
   <nav className="nav">
     <div class="navTitle">
-      <span className="logo">AnalystDogs</span>
+      <a href="/"><span className="logo">AnalystDogs</span></a>
+      
       <button
         class="switch_btn button-27"
         v-on:click="this.showAddBtnModile = !this.showAddBtnModile"
@@ -68,6 +69,10 @@ export default {
 </script>
 
 <style scoped>
+a{
+  text-decoration: none;
+  color: #ffffff;
+}
 .nav {
   display: flex;
   justify-content: space-between;

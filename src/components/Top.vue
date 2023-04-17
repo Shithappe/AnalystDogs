@@ -37,6 +37,13 @@
 
     <div class="diagram" v-else>
       <Chart :labelsDiagram="this.labelsDiagram" :dataDiagram="this.dataDiagram"/>
+
+      <div class="imagesDiagram">
+        <div v-for="(image, index) in this.imagesDiagram" :key="index">
+          <img :src="image" alt="">
+          <div>{{ this.labelsDiagram[index] }}</div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -58,6 +65,7 @@ export default {
       viewDiagram: false,
       labelsDiagram: [],
       dataDiagram: [],
+      imagesDiagram: [],
       category: this.$route.params.category,
       seach: "",
       sort_data: [],
@@ -90,9 +98,11 @@ export default {
       for (let index = 0; index < 10; index++) {
         this.labelsDiagram.push(this.sort_data[index].project_name);
         this.dataDiagram.push(this.sort_data[index].followers_count);
+        this.imagesDiagram.push(this.sort_data[index].logo);
       }
 
       this.viewDiagram = !this.viewDiagram;
+      console.log(this.imagesDiagram);
     }
   },
   mounted() {
@@ -116,6 +126,29 @@ export default {
 </script>
 
 <style>
+.imagesDiagram{
+  margin: 0 auto;
+  padding-left: 5vw;
+  width: 93vw;
+  /* display: flex;
+  justify-content: space-between;
+  align-content: center; */
+  display: grid;
+grid-template-columns: repeat(10, 1fr);
+grid-template-rows: 1fr;
+}
+.imagesDiagram img {
+  height: 5vw;
+  width: 5vw;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: rgba(39, 40, 40, 0.2) 0px 8px 24px;
+}
+.imagesDiagram span{
+  font-size: small;
+  color: rgb(213, 213, 213)
+}
+
 .diagram{
   height: 85vh;
   margin-top: -5vh;

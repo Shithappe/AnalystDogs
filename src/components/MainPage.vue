@@ -89,7 +89,6 @@ export default {
   mounted() {
     axios.get('https://analytics.movedogs.club/api/get_projects_by_cat_byhome')
     .then((response)=>{
-      console.log(response.data);
       this.big_card = response.data;
     })
   }

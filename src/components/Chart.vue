@@ -96,16 +96,17 @@ export default {
         },
         scales: {
           x: {
-            type: "category",
-            ticks: {
-              color: "rgba(255, 255, 255, 0.5)",
-              font: {
-                size: 14,
-              },
-            },
-            grid: {
-              display: false,
-            },
+            display: false,
+            // type: "category",
+            // ticks: {
+            //   color: "rgba(255, 255, 255, 0.5)",
+            //   font: {
+            //     size: 14,
+            //   },
+            // },
+            // grid: {
+            //   display: false,
+            // },
           },
           y: {
             type: "linear",
@@ -138,10 +139,5 @@ export default {
       },
     };
   },
-  mounted() {
-    console.log(this.labelsDiagram);
-    // this.chartData.labels = this.labelsDiagram;
-    // this.chartData.datasets[0].data = this.dataDiagram;
-  }
 };
 </script>

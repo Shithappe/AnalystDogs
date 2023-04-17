@@ -24,7 +24,7 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0;
+    margin: 20vh 0 0;
     font-size: medium;
     color: white;
     box-shadow: rgba(39, 40, 40, 0.5) 0px 8px 24px;
