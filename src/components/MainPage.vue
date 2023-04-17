@@ -114,4 +114,13 @@ html, body{
   justify-content: center;
   padding: 2vh 5vw;
 }
+
+@media screen and (max-width: 500px) {
+  .categories{
+    margin-top: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 </style>
