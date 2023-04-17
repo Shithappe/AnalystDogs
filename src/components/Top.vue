@@ -10,7 +10,7 @@
         }}
       </h1>
 
-      <div className="sort_tool">
+      <!-- <div className="sort_tool">
         <input
           className="inpSeach"
           v-model="seach"
@@ -20,16 +20,24 @@
         />
         <button v-on:click="sort_of_members">Members</button>
         <button>Hype</button>
-      </div>
+      </div> -->
+      <button class="button-27" @click="switchViewDiagram">View Diagram</button>
     </div>
 
-    <Card
-      v-for="(item, index) in this.sort_data"
-      :key="index"
-      :index="index"
-      :data="item"
-      :max_hype="max_hype"
-    />
+
+    <div v-if="!this.viewDiagram">
+      <Card
+        v-for="(item, index) in this.sort_data"
+        :key="index"
+        :index="index"
+        :data="item"
+        :max_hype="max_hype"
+      />
+    </div>
+
+    <div class="diagram" v-else>
+      <Chart :labelsDiagram="this.labelsDiagram" :dataDiagram="this.dataDiagram"/>
+    </div>
 
   </div>
 </template>
@@ -37,14 +45,19 @@
 <script>
 import axios from "axios";
 import Card from "./Card.vue";
+import Chart from "./Chart.vue";
 
 export default {
   name: "Top",
   components: {
     Card,
+    Chart
   },
   data() {
     return {
+      viewDiagram: false,
+      labelsDiagram: [],
+      dataDiagram: [],
       category: this.$route.params.category,
       seach: "",
       sort_data: [],
@@ -70,13 +83,22 @@ export default {
       });
       this.max_hype = Math.max.apply(Math, hypes);
     },
+    switchViewDiagram() {
+      this.labelsDiagram = [];
+      this.dataDiagram = [];
+
+      for (let index = 0; index < 10; index++) {
+        this.labelsDiagram.push(this.sort_data[index].project_name);
+        this.dataDiagram.push(this.sort_data[index].followers_count);
+      }
+
+      this.viewDiagram = !this.viewDiagram;
+    }
   },
   mounted() {
     axios
       .get(
-        `https://analytics.movedogs.club/api/get_projects_by_cat/${this.category
-          .toLowerCase()
-          .replace(/ /g, "-")}`
+        `https://analytics.movedogs.club/api/get_projects_by_cat/${this.category.toLowerCase().replace(/ /g, "-")}`
       )
       .then((response) => {
         // console.log(response.data);
@@ -94,6 +116,10 @@ export default {
 </script>
 
 <style>
+.diagram{
+  height: 85vh;
+  margin-top: -5vh;
+}
 .main {
   min-height: 78vh;
 }
@@ -152,7 +178,7 @@ export default {
   justify-content: space-between;
   align-items: center;
 
-  width: 60vw;
+  width: 62.5vw;
   margin: 0 auto;
 }
 .adding h1 {
@@ -165,4 +191,38 @@ export default {
     display: none;
   }
 }
+
+
+.button-27 {
+  background-color: #007bff;
+  border: 2px solid #1a1a1a00;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.button-27:disabled {
+  pointer-events: none;
+}
+
+.button-27:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-27:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
 </style>
